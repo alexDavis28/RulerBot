@@ -31,6 +31,7 @@ class Moderation(commands.Cog):
 
         if amount < 1:
             await ctx.send("The amount of messages to clear must be an integer more than zero")
+            return None
 
         await ctx.channel.purge(limit=amount + 1)
         msg = await ctx.send(f"{amount} messages cleared by {ctx.author.mention}.")
