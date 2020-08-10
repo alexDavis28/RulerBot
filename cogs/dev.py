@@ -14,7 +14,7 @@ class Dev(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         """Runs when the cog is loaded, so i know it's working"""
-        print(f"Cog <dev.py> is online.}")
+        print(f"Cog <dev.py> is online.")
 
     # Commands
     @commands.is_owner()
