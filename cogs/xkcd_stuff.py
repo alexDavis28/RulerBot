@@ -27,6 +27,7 @@ class XkcdStuff(commands.Cog):
 
     @commands.command()
     async def xkcd(self, ctx, number: int = None):
+        """Gets a random xkcd comic, or a specific one if given a number"""
         if not number:
             current_number = requests.get("https://xkcd.com/info.0.json").json()["num"]
             number = random.randint(1, current_number)
