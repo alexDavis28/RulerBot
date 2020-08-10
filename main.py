@@ -24,9 +24,9 @@ async def on_ready():
 
 
 @bot.command()
-@bot.is_owner()
+@commands.is_owner()
 async def invite(ctx):
-    ctx.send(invite)
+    await ctx.send(invite_link)
 
 
 load_cogs("./cogs")
