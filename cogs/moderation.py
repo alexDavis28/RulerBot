@@ -34,6 +34,19 @@ class Moderation(commands.Cog):
         except discord.NotFound:
             pass
 
+    @commands.command()
+    @commands.has_permissions(kick_members=True)
+    async def kick(self, ctx, member: discord.Member, *, reason=None):
+        """Kick a specified user, with an optional reason"""
+        try:
+            await member.kick(reason=reason)
+        except commands.CommandInvokeError:
+            await ctx.send("That user can't be kicked")
+            return None
+
+        embed = modlog_embed("User kicked", member, ctx.author, reason)
+        await ctx.send(embed=embed)
+
 
 def setup(client):
     client.add_cog(Moderation(client))
