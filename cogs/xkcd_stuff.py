@@ -9,7 +9,7 @@ def xkcd_embed(data: dict) -> discord.Embed:
     e.title = data["safe_title"]
     e.description = data["alt"]
     e.set_image(url=data["img"])
-    e.set_footer(text=f"xkcd-{data['num']}")
+    e.set_footer(text=f"XKCD {data['num']}")
     return e
 
 
