@@ -36,8 +36,10 @@ class XkcdStuff(commands.Cog):
         if response:
             data = response.json()
 
-        embed = xkcd_embed(data)
-        await ctx.send(embed=embed)
+            embed = xkcd_embed(data)
+            await ctx.send(embed=embed)
+        else:
+            await ctx.send("Sorry, no comic found")
 
 
 def setup(client):
