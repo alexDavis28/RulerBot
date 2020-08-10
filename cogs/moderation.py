@@ -3,7 +3,8 @@ from discord.ext import commands
 import asyncio
 
 
-def modlog_embed(title: str, victim: discord.Member, moderator: discord.Member, reason: str = "No reason given") -> discord.Embed:
+def modlog_embed(title: str, victim: discord.Member, moderator: discord.Member,
+                 reason: str = "No reason given") -> discord.Embed:
     embed = discord.Embed(title=title, color=discord.Color.red())
     embed.set_author(name=victim.display_name, icon_url=victim.avatar_url)
     embed.add_field(name="User", value=victim.mention)
@@ -26,6 +27,11 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_permissions(manage_messages=True)
     async def clear(self, ctx, amount: int):
+        """Clears a number of messages"""
+
+        if amount < 1:
+            await ctx.send("The amount of messages to clear must be an integer more than zero")
+
         await ctx.channel.purge(limit=amount + 1)
         msg = await ctx.send(f"{amount} messages cleared by {ctx.author.mention}.")
         await asyncio.sleep(5)
