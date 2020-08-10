@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import time
 
 # Dev stuff
 # DO NOT TOUCH THIS FILE UNLESS YOU HAVE TO
@@ -15,7 +14,7 @@ class Dev(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         """Runs when the cog is loaded, so i know it's working"""
-        print(f"Cog <dev.py> is online. {time.time()}")
+        print(f"Cog <dev.py> is online.}")
 
     # Commands
     @commands.is_owner()
