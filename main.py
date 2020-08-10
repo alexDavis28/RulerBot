@@ -23,7 +23,7 @@ async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(activity))
 
 
-@bot.command()
+@bot.command(hidden=True)
 @commands.is_owner()
 async def invite(ctx):
     await ctx.send(invite_link)
