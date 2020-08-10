@@ -47,6 +47,19 @@ class Moderation(commands.Cog):
         embed = modlog_embed("User kicked", member, ctx.author, reason)
         await ctx.send(embed=embed)
 
+    @commands.command()
+    @commands.has_permissions(ban_members=True)
+    async def ban(self, ctx, member: discord.Member, *, reason=None):
+        """Ban a specified user, with an optional reason"""
+        try:
+            await member.ban(reason=reason)
+        except commands.CommandInvokeError:
+            await ctx.send("That user can't be banned")
+            return None
+
+        embed = modlog_embed("User banned", member, ctx.author, reason)
+        await ctx.send(embed=embed)
+
 
 def setup(client):
     client.add_cog(Moderation(client))
