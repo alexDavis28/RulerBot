@@ -1,8 +1,12 @@
 import json
 import os
+import sys
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-config_path = dir_path + "\\config.json"
+if sys.platform.startswith("linux"):
+    config_path = dir_path + "/config.json"
+elif sys.platform.startswith("win"):
+    config_path = dir_path + "\\config.json"
 
 with open(config_path) as file:
     data = json.load(file)
