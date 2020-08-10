@@ -1,5 +1,6 @@
 {
   "BOT_TOKEN": "aaa",
   "BOT_PREFIX": "!!",
-  "DEFAULT_ACTIVITY_MESSAGE": "Doing maths"
+  "DEFAULT_ACTIVITY_MESSAGE": "Doing maths",
+  "INVITE_LINK": "LINK"
 }

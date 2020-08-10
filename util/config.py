@@ -10,3 +10,4 @@ with open(config_path) as file:
 token = data["BOT_TOKEN"]
 prefix = data["BOT_PREFIX"]
 activity = data["DEFAULT_ACTIVITY_MESSAGE"]
+invite = data["INVITE_LINK"]
